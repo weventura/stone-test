@@ -1,0 +1,22 @@
+<div class="container">
+    <ng-container *ngIf="displayArrowLeft">
+        <div class="container__arrow-left" (click)="onLeft()">
+            <fa-icon class="container__arrow-left--icon" icon="angle-left"></fa-icon>
+        </div>
+    </ng-container>
+
+    <div class="container__content in-left" [id]="id">
+        <ng-container *ngFor="let item of data">
+            <div class="container__content--item">
+                <ng-container *ngTemplateOutlet="template; context: { $implicit: item }"></ng-container>
+            </div>
+        </ng-container>
+    </div>
+    
+    <ng-container *ngIf="displayArrowRight">
+        <div class="container__arrow-right" (click)="onRight()" >
+            <fa-icon class="container__arrow-right--icon" icon="angle-right"></fa-icon>
+        </div>
+    </ng-container>
+ 
+</div>

@@ -1,0 +1,45 @@
+<section class="c-movie-details">
+    <div class="c-movie-details__highlight">
+        
+        <div class="c-movie-details__highlight--backpage" (click)="onBackToHome()">
+            <fa-icon class="backpage-icon" icon="arrow-left"></fa-icon>
+        </div>
+        
+        <app-featured-movie [movieId]="movieId$"></app-featured-movie>
+    </div>
+
+    <div class="block">
+        <span class="block__title">Similar movies</span>
+
+        <app-carousel
+            [id]="'similarCard'"
+            [template]="similarTemplate"
+            [data]="similars"
+        >
+            <ng-template let-item #similarTemplate>
+                <app-similar-card [similar]="item" (event)="onSimilarSelected($event)"></app-similar-card>
+            </ng-template>
+        </app-carousel>
+    </div>
+
+    <div class="block">
+        <span class="block__title">Reviews</span>
+
+        <div class="c-movie-details__reviews">
+            <ng-container *ngIf="reviews.length > 0">
+                <ng-container *ngFor="let review of reviews">
+                    <div class="c-movie-details__reviews--item">
+                        <app-card-review [review]="review"></app-card-review>
+                    </div>
+                </ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="reviews.length <= 0">
+                <app-empty-state [description]="'No reviews for this movie'"></app-empty-state>
+            </ng-container>
+
+       
+        </div>
+    </div>
+
+</section>

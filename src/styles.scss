@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--stone-secondary);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  // Base colors
+  --stone-white: #ffffff;
+  --stone-black: #000000;
+
+  --stone-transparent: transparent;
+  --stone-primary: #db3d7f;
+  --stone-secondary: #000e23;
+
+  --stone-red-50: #fd7a87;
+  --stone-red-100: #fb0219;
+  --stone-red-200: #d80115;
+
+  --stone-green-100: #a0b046;
+  --stone-green-200: #6dbf17;
+  --stone-green-300: #11644d;
+  --stone-green-400: #52c41a;
+
+  --stone-orange-100: #ff8650;
+  --stone-orange-200: #ff601a;
+  --stone-orange-300: #f03c0c;
+
+  --stone-yellow-100: #ffc84d;
+  --stone-yellow-200: #f9d628;
+  --stone-yellow-300: #ffbd1a;
+
+  --stone-purple-50: #f9f9f94d;
+  --stone-purple-100: #5ae5d8;
+  --stone-purple-200: #6c39b5;
+  --stone-purple-300: #542899;
+
+  --stone-gray: #6e6e73;
+  --stone-gray-100: #F0F0F0;
+  --stone-gray-200: #EBEBEB;
+  --stone-gray-300: #CCCCCC;
+  --stone-gray-500: #7A7A7A;
+  --stone-gray-700: #525252;
+  --stone-gray-800: #292929;
+
+  // Others colors
+  --stone-default-text: #3d3d3d;
+  --stone-default-border: #e7e7e7;
+
+  --menu-item-hover: #f7f7f7;
+  --menu-item-active: #dcdcdc;
+
+  --default-shadow-button: 2px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  --default-shadow-card: 0px 100px 80px #00000012,
+    0px 41.7776px 33.4221px #0000000d, 0px 22.3363px 17.869px #0000000b,
+    0px 12.5216px 10.0172px #00000009, 0px 6.6501px 5.32008px #00000007,
+    0px 2.76726px 2.21381px #00000005;
+  --default-shadow-header: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

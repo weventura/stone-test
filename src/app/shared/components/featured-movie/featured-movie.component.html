@@ -1,0 +1,31 @@
+<section class="c-featured-movie">
+
+    <div class="c-featured-movie__overlay"
+    [ngStyle]="{
+            'background-image': 'url(' + BASE_IMAGE_URL + movie?.poster_path + ')',
+            'background-position': 'center',
+            'background-size': 'cover',
+            'background-repeat': 'no-repeat',
+            'filter': 'blur(20px)'
+        }"
+  ></div>
+    
+    <div class="c-featured-movie__image" >
+        <img class='c-featured-movie__image--poster' [src]="BASE_IMAGE_URL + movie?.poster_path" [alt]="movie?.poster_path"/>
+    </div>
+
+    <div class="content">
+        <span class="content__title">{{ movie?.title}}</span>
+        <span class="content__year">{{ onGetDateYear(movie?.release_date) }}</span>
+        
+        <div class="content__rate"><fa-icon class="content__rate--icon" icon="star"></fa-icon><span class="content__rate--label">{{ onFormatRate(movie?.vote_average) }}</span></div>
+        <div class="content__time">
+            <span>{{ onConvertMinutesToHours(movie?.runtime) }} - <ng-container *ngFor="let genre of movie?.genres">{{ genre.name + ' ' }}</ng-container></span>
+        </div>
+        <span class="content__description">{{ movie?.overview }}</span>
+        <div class="actions">
+            <button class="actions__trailler" (click)="onWatchTrailler()">Watch Trailler</button>
+            <button class="actions__now" (click)="onWatchNow()">Watch Now</button>
+        </div>
+    </div>
+</section>

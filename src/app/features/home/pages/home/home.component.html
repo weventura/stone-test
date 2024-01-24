@@ -1,0 +1,73 @@
+<section class="c-home">
+
+    <div class="c-home__highlight">
+        <app-featured-movie [movieId]="movieId$"></app-featured-movie>
+    </div>
+
+    <div class="c-home__filters">
+        <span class="c-home__filters--label">Filters</span>
+
+        <div class="search">
+            <div class="search__field">
+                <input class="search__field--input" type="text" placeholder="Search by title" [(ngModel)]="searchValue" (ngModelChange)="onSearchListen()">
+            </div>
+
+            <div class="search__sortby">
+                <select class="search__sortby--select" (change)="onSelectSort($event)">
+                    <option [value]="'Select order'" selected  disabled>Select order</option>
+                    <ng-container *ngFor="let sort of sortbyList">
+                        <option class="select-option" [value]="sort.value">{{ sort.label }}</option>
+                    </ng-container>
+                  </select>
+            </div>
+          
+        </div>
+    </div>
+
+    <div class="c-home__bubbles">
+        <app-carousel
+            [id]="'bubbleFilter'"
+            [template]="bubbleFilterTemplate"
+            [data]="genres"
+        >
+            <ng-template let-item #bubbleFilterTemplate>
+                <app-bubble-filter [filter]="item" (event)="onFilterChanged($event)"></app-bubble-filter>
+            </ng-template>
+        </app-carousel>
+    </div>
+
+    <div class="movies">
+        <ng-container *ngIf="discoverMoviesFiltered$.getValue().length <= 0; then emptyState; else movies"></ng-container>
+
+        <ng-container *ngIf="discoverMoviesFiltered$.getValue().length >= 20">
+            <div class="movies__pagination">
+                <app-pagination
+                    [currentPage]="currentPage"
+                    [totalPages]="totalPages"
+                    (pageChanged)="onPageChanged($event)"
+                ></app-pagination>
+            </div>
+        </ng-container>
+    </div>
+</section>
+
+<ng-template #movies>
+    <div class="movies__list">
+        <ng-container *ngIf="loading">
+            <app-loader></app-loader>
+        </ng-container>
+
+        <ng-container *ngIf="!loading">
+            <ng-container *ngFor="let movie of discoverMoviesFiltered$.getValue()">
+                <div class="movies__list--card">
+                    <app-card-movie [movie]="movie"></app-card-movie>
+                </div>
+            </ng-container>
+        </ng-container>
+       
+    </div>
+</ng-template>
+
+<ng-template #emptyState>
+    <app-empty-state [description]="'No results found...'"></app-empty-state>
+</ng-template>

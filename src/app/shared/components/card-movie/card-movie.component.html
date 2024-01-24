@@ -1,0 +1,15 @@
+<div class="c-card" (click)="onNavigateToDetails()">
+    <img class='c-card__poster' [src]='baseImageUrl + movie.poster_path' [alt]='movie.original_title' />
+
+    <div class="content">
+        <div class="content__description">
+            <span class="content__description--title">{{ movie.title }}</span>
+            <span class="content__description--year">{{ onGetDateYear(movie.release_date) }}</span>
+        </div>
+
+        <div class="content__play">
+            <fa-icon class="content__play--icon" icon="play-circle"></fa-icon>
+        </div>
+        
+    </div>
+</div>

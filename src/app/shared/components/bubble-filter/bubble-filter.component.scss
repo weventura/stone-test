@@ -1,0 +1,28 @@
+.c-bubble-filter {
+    width: 100%;
+    min-width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.active {
+    background-color: var(--stone-primary);
+
+    .c-bubble-filter__label {
+        color: var(--stone-white);
+    }
+}
+
+.inactive {
+    border: 1px solid var(--stone-primary);
+    background-color: transparent;
+
+    .c-bubble-filter__label {
+        color: var(--stone-primary);
+    }
+}

@@ -1,0 +1,51 @@
+.c-pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 0;
+    gap: 16px;
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+
+        &--page {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            border: none;
+            outline: 0;
+            cursor: pointer;
+        }
+    }
+
+    &__action {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        &--icon {
+            font-size: 20px;
+            color: var(--stone-white);
+        }
+    }
+}
+
+.active {
+    background-color: var(--stone-primary);
+    color: var(--stone-white);
+    font-weight: 600;
+}
+
+.inactive {
+    background-color: var(--stone-gray-200);
+    color: var(--stone-gray-700);
+}

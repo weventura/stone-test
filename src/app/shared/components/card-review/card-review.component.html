@@ -1,0 +1,38 @@
+<div class="c-review">
+
+    <div class="row">
+        <div class="c-review__author">
+            <ng-container *ngIf="review.author_details.avatar_path">
+                <img class="c-review__author--image" [src]="baseImageUrl + review.author_details.avatar_path" [alt]="review.author_details.username" />
+            </ng-container>
+
+            <ng-container *ngIf="!review.author_details.avatar_path">
+                <div class="c-review__author--circle-name">{{ onGetInitialsName(review.author) }}</div>
+            </ng-container>
+
+            <span class="c-review__author--name">{{ review.author }}</span>
+        </div>
+
+        <div class="c-review__rate">
+            <fa-icon class="c-review__rate--icon" icon="star"></fa-icon>
+            <span class="c-review__rate--label">{{ review.author_details.rating ? onFormatRate(review.author_details.rating) : 0 }}</span>
+        </div>
+    </div>
+
+    <div class="c-review__overview" [innerHTML]="review.content"></div>
+
+
+    <!-- <img class='c-review__poster' [src]='baseImageUrl + movie.poster_path' [alt]='movie.original_title' /> -->
+
+    <!-- <div class="content">
+        <div class="content__description">
+            <span class="content__description--title">{{ movie.title }}</span>
+            <span class="content__description--year">{{ 'date here' }}</span>
+        </div>
+
+        <div class="content__play">
+            <fa-icon class="content__play--icon" icon="play-circle"></fa-icon>
+        </div>
+        
+    </div> -->
+</div>
