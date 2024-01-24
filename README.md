@@ -2,8 +2,6 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.11.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.10.
-
 ## Project dependencies
 
 Run `npm install` for install the dependencies.
